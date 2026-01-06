@@ -243,13 +243,14 @@ class CoffeeDetectNode(Node):
             # --- Retreat along local -Z ---
             pos_base, quat_base = self.move_pose_along_axis(pos_base, quat_base, distance=0.08, axis='z')
 
+            self.get_logger().info(
+                f"Pos = [{pos_base[0]:.3f}, {pos_base[1]:.3f}, {pos_base[2]:.3f}], "
+                f"Quat = [{quat_base[0]:.3f}, {quat_base[1]:.3f}, {quat_base[2]:.3f}, {quat_base[3]:.3f}]"
+            )
+
         except Exception as e:
             self.get_logger().error(f"Processing failed: {e}")
 
-        self.get_logger().info(
-            f"Pos = [{pos_base[0]:.3f}, {pos_base[1]:.3f}, {pos_base[2]:.3f}], "
-            f"Quat = [{quat_base[0]:.3f}, {quat_base[1]:.3f}, {quat_base[2]:.3f}, {quat_base[3]:.3f}]"
-        )
         return pos_base, quat_base
 
     def publish_pos(self, position, quaternion):
@@ -286,9 +287,18 @@ def main(args=None):
     node = CoffeeDetectNode()
 
     try:
+        time.sleep(3.0)  # 等待初始化完成
+        # 观测姿态 方便拍摄
+        node.publish_pos(
+            position=np.array([-0.065623, 0.001, 0.400744]),
+            quaternion=np.array([0.004185950432734016, 0.7850548335728314, 0.01612455744139523, 0.6186224168049711])
+        )
+        time.sleep(3.0)  # 确保动作完成
+
         while rclpy.ok():
+
             # 非阻塞地处理一次回调（接收新消息）
-            rclpy.spin_once(node, timeout_sec=0.01)
+            rclpy.spin_once(node, timeout_sec=0.5)
 
             # 如果有新帧，处理它
             if node.latest_frame is not None:
@@ -305,13 +315,14 @@ def main(args=None):
                 p0, q0 = node.move_pose_along_axis(p, q, distance=0.1, axis='z')
 
                 node.publish_pos(p0, q0)
-                time.sleep(5.0)  # 确保动作完成
+                time.sleep(3.0)  # 确保动作完成
 
                 # 打开夹爪
-                node.publish_gripper(gap=0.035)  
+                node.publish_gripper(gap=0.035)
 
+                # 移动到抓取点
                 node.publish_pos(p, q)
-                time.sleep(5.0)
+                time.sleep(3.0)
 
                 # 关闭夹爪
                 node.publish_gripper(gap=0.0)
