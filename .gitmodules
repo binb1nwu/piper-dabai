@@ -1,3 +1,6 @@
 [submodule "OrbbecSDK"]
 	path = OrbbecSDK
 	url = https://github.com/binb1nwu/OrbbecSDK.git
+[submodule "nlopt"]
+	path = nlopt
+	url = https://github.com/binb1nwu/nlopt.git
