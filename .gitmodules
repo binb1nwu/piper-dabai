@@ -7,3 +7,6 @@
 [submodule "piper_ros"]
 	path = piper_ros
 	url = https://github.com/binb1nwu/piper_ros.git
+[submodule "moveit_ws/src/moveit2"]
+	path = moveit_ws/src/moveit2
+	url = git@github.com:binb1nwu/moveit2.git
