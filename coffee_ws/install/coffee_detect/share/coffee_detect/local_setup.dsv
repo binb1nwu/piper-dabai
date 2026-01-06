@@ -1,3 +1,0 @@
-source;share/coffee_detect/environment/ament_prefix_path.sh
-source;share/coffee_detect/environment/path.sh
-source;share/coffee_detect/environment/pythonpath.sh

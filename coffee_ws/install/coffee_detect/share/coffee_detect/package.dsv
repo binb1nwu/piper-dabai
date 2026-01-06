@@ -1,8 +1,0 @@
-source;share/coffee_detect/hook/cmake_prefix_path.ps1
-source;share/coffee_detect/hook/cmake_prefix_path.dsv
-source;share/coffee_detect/hook/cmake_prefix_path.sh
-source;share/coffee_detect/local_setup.bash
-source;share/coffee_detect/local_setup.dsv
-source;share/coffee_detect/local_setup.ps1
-source;share/coffee_detect/local_setup.sh
-source;share/coffee_detect/local_setup.zsh

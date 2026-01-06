@@ -1,7 +1,0 @@
-setup.py
-coffee_detect/__init__.py
-coffee_detect/coffee.py
-coffee_detect.egg-info/PKG-INFO
-coffee_detect.egg-info/SOURCES.txt
-coffee_detect.egg-info/dependency_links.txt
-coffee_detect.egg-info/top_level.txt

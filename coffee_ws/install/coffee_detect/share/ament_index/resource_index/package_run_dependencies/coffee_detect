@@ -1,1 +1,0 @@
-rclpy;std_msgs;sensor_msgs;geometry_msgs;cv_bridge;message_filters;python3-opencv;python3-numpy;python3-scipy;python3-scikit-learn;open3d;segment-anything;ament_copyright;ament_flake8;ament_pep257;python3-pytest
