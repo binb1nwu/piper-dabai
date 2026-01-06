@@ -13,3 +13,6 @@
 [submodule "orbbec_ws/src/OrbbecSDK_ROS2"]
 	path = orbbec_ws/src/OrbbecSDK_ROS2
 	url = git@github.com:binb1nwu/OrbbecSDK_ROS2.git
+[submodule "piper_sdk"]
+	path = piper_sdk
+	url = git@github.com:binb1nwu/piper_sdk.git
